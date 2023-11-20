@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Now</title>
+<link rel="stylesheet" href="enroll.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo"><img src="cogni-logo.png" alt=""></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#aboutUs" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#courses" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="internship.html" class="nav-link">Internship</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contactUs" class="nav-link">Contact Us</a>
+                </li>
+
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+</header>
+
+<div id ="contactUs"class="formContainer">
+    <div class="form">
+        <h1>Enroll Now</h1>
+        <form action="submit_form.php" method="post">
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <input type="text" name="subject" placeholder="Subject">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button id="enroll-submit" >Submit</button>
+        </form>
+    </div>
+</div>
+
+</body>
+
+<script>
+    document.getElementById("enroll-submit").addEventListener("click", function () {
+    window.location.href = "index.html"; 
+});
+
+
+     const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+
+</script>
+</html>

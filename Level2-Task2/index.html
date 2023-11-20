@@ -1,0 +1,180 @@
+<!DOCTYPE html 5>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Level1</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Level2Task1\index.html">
+    <link rel="stylesheet" href="Level2Task1\index.css">
+</head>
+
+<body>
+    
+    <header class="header">
+        <nav class="navbar">
+            <a href="#index.html" class="logo"><img src="cogni-logo.png" alt=""></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#aboutUs" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#courses" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="internship.html" class="nav-link">Internship</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contactUs" class="nav-link">Contact Us</a>
+                </li>
+
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+</header>
+
+    <section class="heroSection">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="row align-items-center">
+                    <div class="part1 ">
+                        <h1 >Cognifyz Technologies</h1>
+                        <br>
+                        <p class="heropara">Where Data Meets Intelligence</p>
+                        <button id="enroll-button" class="enrollNow" onclick="">ENROLL NOW</button>
+                    </div>
+
+                    <div class="part2">
+                        <img src="Data points-bro.svg" alt="main img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="aboutUs reveal">
+        <h1 id="aboutUs"  class="aboutHeading">
+            About Us
+        </h1>
+        <br>
+
+        <p >"Cognifyz is a data-driven technology firm that provides tailored
+            training and development solutions. As a leader in the industry,
+            we deliver cutting-edge programs designed to equip individuals and
+            organizations with the skills and knowledge required to succeed in
+            today's dynamic business landscape."
+            <br>“Cognifyz ! ”
+        </p>
+        <br>
+        <br>
+
+    </section>
+
+    <section  id="courses"class="courses reveal">
+        <div class="frame">
+            <div class="coursesComing">
+                <h4>Courses</h4>
+                <br>
+                <h5>(Coming Soon)</h5>
+            </div>
+
+            <div class="coursesList">
+                <div class="items">
+                    <img src="python.png" alt="">
+                    <h2>Python Programming</h2>
+                    <button type="submit" class="enroll">ENROLL</button>
+                </div>
+                <div class="items">
+                    <img src="data-ana.png" alt="">
+                    <h2>Data Analytics</h2>
+                    <button type="submit" class="enroll">ENROLL</button>
+                </div>
+                <div class="items">
+                    <img src="machine-learning.png" alt="">
+                    <h2>Machine Learning</h2>
+                    <button type="submit" class="enroll">ENROLL</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id ="contactUs"class="formContainer reveal">
+        <div class="form">
+            <h1>Contact Us</h1>
+            <form action="submit_form.php" method="post">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" placeholder="Your Message"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Level 2-Task 2 &copy; Cognifyz Technologies</p>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+
+    window.addEventListener('scroll',reveal);
+ function reveal()
+ {
+    var reveals=document.querySelectorAll('.reveal');
+
+    for(var i=0;i<reveals.length;i++)
+    {
+        var windowheight= window.innerHeight;
+        var revealtop=reveals[i].getBoundingClient().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint)
+        {
+            reveals[i].classList.add('active');
+        }
+        else{
+            reveals[i].classList.remove('active');
+        }
+    }
+ }
+
+
+
+
+
+    const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+
+document.getElementById("enroll-button").addEventListener("click", function () {
+    window.location.href = "enroll.html"; 
+});
+</script>
+
+</html>

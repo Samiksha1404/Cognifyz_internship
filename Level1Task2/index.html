@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Project</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header class="headerpart">
+        <div class="logo"><img src="cogni-logo.png" alt="logo"></div>
+        <h1 class="heading">Level1 Task2</h1>
+    </header>
+    <div class="herosection">
+        <div class="main">
+            <h1 class="heading2">JavaScript Basic Task</h1>
+            <div class="menu">
+                <button class="option" onclick="changeButtonColor()">Change Button Color</button>
+                <button class="option" onclick="displayGreeting()">Display Greeting</button>
+                <button class="option" onclick="showCalculator()">Use Calculator</button>
+            </div>
+
+            <div id="content">
+                Content will be displayed here
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeButtonColor() {
+            const button = document.getElementById("content");
+            button.innerHTML = `<button class="commonbutton" onclick="changeColor()">Click me to change color</button>`;
+        }
+
+        function displayGreeting() {
+            const greeting = document.getElementById("content");
+            greeting.innerHTML = `<button class="commonbutton" onclick="showGreeting()">Show Greeting</button>`;
+        }
+
+        function showCalculator() {
+            const calculator = document.getElementById("content");
+            calculator.innerHTML = `
+                <input class="numberinput" type="number" id="num1" placeholder="Enter a number">
+                <input class="numberinput" type="number" id="num2" placeholder="Enter another number">
+                <button  class="addbutton" onclick="addNumbers()">Add</button>
+                <p id="result"></p>`;
+        }
+
+        function changeColor() {
+            const button = document.querySelector("button");
+            const colors = ["red", "green", "blue", "yellow", "orange"];
+            const currentColor = button.style.backgroundColor;
+
+            let newColor;
+            do {
+                newColor = colors[Math.floor(Math.random() * colors.length)];
+            } while (newColor === currentColor);
+
+            button.style.backgroundColor = newColor;
+        }
+
+        function showGreeting() {
+            const currentTime = new Date();
+            const currentHour = currentTime.getHours();
+            let greeting;
+
+            if (currentHour < 12) {
+                greeting = "Good morning!";
+            } else if (currentHour < 18) {
+                greeting = "Good afternoon!";
+            } else {
+                greeting = "Good evening!";
+            }
+
+            alert(greeting);
+        }
+
+        function addNumbers() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const result = document.getElementById("result");
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const sum = num1 + num2;
+                result.textContent = "Result: " + sum;
+            } else {
+                result.textContent = "Invalid input. Please enter valid numbers.";
+            }
+        }
+    </script>
+</body>
+
+</html>
